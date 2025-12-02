@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIYAKOYA | Modern Tradition</title>
+    <meta name="description" content="MIYAKOYA - 伝統と現代が織りなす、新しい和のカタチ。ハンドメイドアクセサリーと雑貨。">
+    <meta property="og:title" content="MIYAKOYA | Modern Tradition">
+    <meta property="og:description" content="伝統と現代が織りなす、新しい和のカタチ。ハンドメイドアクセサリーと雑貨。">
+    <meta property="og:image" content="https://miyakoya.vercel.app/assets/hero_bg.png"> <!-- Placeholder URL -->
+    <meta property="og:url" content="https://miyakoya.vercel.app">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;500;700&family=Shippori+Mincho:wght@400;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="logo-mark">MIYAKOYA</div>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">MIYAKOYA</h1>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#concept">Concept</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    <span class="fade-in-up" style="animation-delay: 0.8s;">Weaving Dreams</span><br>
+                    <span class="fade-in-up" style="animation-delay: 1.8s;">into Reality</span><br>
+                    <span class="fade-in-up" style="animation-delay: 2.8s;">on the Stage</span>
+                </h2>
+                <p class="hero-subtitle fade-in-up" style="animation-delay: 3.8s;">
+                    指先から生まれる魔法、<br>
+                    あなただけの物語を纏う瞬間。
+                </p>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <section class="concept section" id="concept">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Philosophy</span>
+                    <h3 class="section-title">Concept</h3>
+                </div>
+                <div class="concept-content">
+                    <div class="concept-text">
+                        <p>舞台の上で輝く、あなただけの特別な一着を。</p>
+                        <p>MIYAKOYAは、バレエを愛するすべてのダンサーへ、<br>一点一点心を込めてハンドメイドの衣装とティアラをお届けします。</p>
+                        <p>優雅さと機能性を兼ね備えたデザインで、<br>夢の舞台を彩るお手伝いをいたします。</p>
+                        <a href="#collection" class="btn-text">View Collection</a>
+                    </div>
+                    <div class="concept-image parallax-image">
+                        <img src="assets/concept.png" alt="Ballet Atelier" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="collection section" id="collection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Works</span>
+                    <h3 class="section-title">Collection</h3>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="location.href='collection-item.html'">
+                        <img src="assets/collection_tutu.png" alt="Classical Tutu">
+                        <div class="gallery-overlay">
+                            <h4>Classical Tutu</h4>
+                            <p>クラシックチュチュ</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/collection_tiara.png" alt="Tiara">
+                        <div class="gallery-overlay">
+                            <h4>Tiara</h4>
+                            <p>ティアラ</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/collection_accessory.png" alt="Accessories">
+                        <div class="gallery-overlay">
+                            <h4>Accessories</h4>
+                            <p>小物・アクセサリー</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-more">
+                    <a href="#shop" class="btn-outline">Visit Shop</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="shop section" id="shop">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Online Store</span>
+                    <h3 class="section-title">Shop & SNS</h3>
+                </div>
+                <div class="shop-links">
+                    <a href="https://minne.com/@la-pas-nuit" target="_blank" rel="noopener noreferrer" class="shop-card minne">
+                        <div class="shop-icon">m</div>
+                        <h4>Minne</h4>
+                        <p>ハンドメイドマーケット</p>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="https://miyakoya3858.base.shop/" target="_blank" rel="noopener noreferrer" class="shop-card base">
+                        <div class="shop-icon">B</div>
+                        <h4>BASE</h4>
+                        <p>オンラインショップ</p>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/miya_koya.3858/" target="_blank" rel="noopener noreferrer" class="shop-card instagram">
+                        <div class="shop-icon">IG</div>
+                        <h4>Instagram</h4>
+                        <p>最新情報・ギャラリー</p>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">MIYAKOYA</div>
+            <ul class="footer-nav">
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#shop">Shop</a></li>
+            </ul>
+            <p class="copyright">&copy; 2024 MIYAKOYA. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
