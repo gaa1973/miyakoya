@@ -709,10 +709,11 @@ body.home .header:not(.scrolled) .nav-list a {
     height: 400px;
   }
   .logo-mark {
-    font-size: 1.8rem;
-    letter-spacing: 0.2em;
+    font-size: 10vw;       /* ← 画面幅に合わせて自動調整 */
+    letter-spacing: 0.2em; /* 文字間隔はそのままでOK */
     width: 100%;
     text-align: center;
+    padding: 0 5%;         /* 左右に少し余白を持たせる */
   }
   /* メニューが開いたときのスタイル（ドロップダウンにする） */
   .nav {
@@ -733,6 +734,10 @@ body.home .header:not(.scrolled) .nav-list a {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+  }
+
+  .nav-list a {
+    color: var(--color-primary) !important;
   }
 }
 
