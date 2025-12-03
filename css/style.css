@@ -246,7 +246,7 @@ img {
   line-height: 1.1;
   margin-bottom: 30px;
   letter-spacing: 0.02em;
-  color: #4a3b32;
+  color: #F0F0F0;
   font-style: italic;
 }
 
@@ -694,6 +694,32 @@ img {
   }
   .gallery-item img {
     height: 400px;
+  }
+  .logo-mark {
+    font-size: 1.8rem;
+    letter-spacing: 0.2em;
+    width: 100%;
+    text-align: center;
+  }
+  /* メニューが開いたときのスタイル（ドロップダウンにする） */
+  .nav {
+    /* display: none; は既存のコードにあるのでそのままでOKですが、
+       JSで display: block になったときのスタイルを定義します */
+    position: absolute;
+    top: 100%;       /* ヘッダーの真下に配置 */
+    left: 0;
+    width: 100%;
+    background: rgba(255, 240, 245, 0.98); /* 背景色（薄いピンク） */
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+
+  /* リンクを縦並びにする */
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
 }
 
