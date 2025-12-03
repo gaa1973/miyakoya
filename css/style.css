@@ -150,6 +150,17 @@ img {
   color: var(--color-primary);
 }
 
+/* トップページの最上部にいるときだけ、ロゴをシルバーにする */
+body.home .header:not(.scrolled) .logo {
+  color: #F0F0F0;
+}
+
+/* (任意) メニューの文字も一緒にシルバーにするなら以下も追加 */
+body.home .header:not(.scrolled) .nav-list a {
+  color: #D8D8D8;
+  opacity: 1;
+}
+
 .nav-list {
   display: flex;
   gap: 60px;
@@ -259,7 +270,7 @@ img {
   font-size: 1.1rem;
   letter-spacing: 0.15em;
   line-height: 2.2;
-  color: var(--color-primary);
+  color: #F0F0F0;
   margin-top: 40px;
   font-weight: 500;
 }
@@ -660,6 +671,8 @@ img {
     width: 30px;
     height: 20px;
     position: relative;
+    background: transparent;
+    border: none;
   }
   .menu-toggle span {
     position: absolute;
