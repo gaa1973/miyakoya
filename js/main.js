@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
-    
+
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = header ? header.offsetHeight : 0;
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: offsetPosition,
                     behavior: "smooth"
                 });
-                
+
                 // Close mobile menu if open
                 if (window.innerWidth <= 768 && nav) {
                     nav.style.display = 'none';
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         observer.observe(el);
     });
-    
+
     // Add visible class style dynamically or rely on JS setting styles
     // Here we'll use a simple class toggle approach for cleaner CSS separation in future, 
     // but for now inline styles via JS is a quick way to ensure it works without modifying CSS again.
@@ -91,4 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+    // Vertical Stack Mode: No JS Switching logic required.
+    // Each item is statically rendered in HTML.
+    // Scroll animations are handled by the IntersectionObserver above.
 });

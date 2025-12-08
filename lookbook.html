@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classical Tutu | MIYAKOYA Collection</title>
+  <meta name="description" content="MIYAKOYA Collection - Classical Tutu. 伝統と現代が織りなす、至高のクラシックチュチュ。" />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;500;700&family=Shippori+Mincho:wght@400;600&family=Zen+Old+Mincho:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
+  <style>
+    /* Lookbook Layout - INLINED for Stability */
+    .vertical-lookbook {
+      flex-direction: column;
+      display: block;
+      background-color: var(--color-bg-pink);
+    }
+
+    .lookbook-item {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    .lookbook-item.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .lookbook-item .item-image-wrapper {
+      width: 50%;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      flex: 0 0 50%;
+    }
+
+    .lookbook-item .item-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .lookbook-item .item-content-wrapper {
+      width: 50%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 60px;
+      background-color: #ffffff;
+      flex: 0 0 50%;
+    }
+
+    .lookbook-item.reverse .item-content-wrapper {
+      background-color: #fdf5f7;
+    }
+
+    @media (max-width: 768px) {
+
+      .lookbook-item,
+      .lookbook-item.reverse {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+      }
+
+      .lookbook-item .item-image-wrapper {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        flex: none;
+      }
+
+      .lookbook-item .item-content-wrapper {
+        width: 100%;
+        min-height: auto;
+        padding: 60px 20px;
+        flex: none;
+      }
+    }
+
+    /* Slider & Navigation */
+    .item-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .item-slider::-webkit-scrollbar {
+      height: 8px;
+      background: transparent;
+    }
+
+    .item-slider::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+
+    .item-slider img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      scroll-snap-align: start;
+    }
+
+    /* Vertical Stack - Layout Fixes */
+    .lookbook-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      /* Subtle separator */
+    }
+
+    .lookbook-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Ensure images cover fully */
+    .item-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="logo-mark">MIYAKOYA</div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">MIYAKOYA</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html#concept">Concept</a></li>
+          <li><a href="index.html#collection">Collection</a></li>
+          <li><a href="index.html#shop">Shop</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="item-page-container vertical-lookbook">
+
+      <!-- Item 1: Tutu Pink -->
+      <article class="lookbook-item" id="tutu-pink">
+        <div class="item-image-wrapper">
+          <div class="item-image-inner item-slider">
+            <img src="assets/tutu_pink.jpg" alt="Classical Tutu - Pink" class="item-main-image" />
+          </div>
+        </div>
+        <div class="item-content-wrapper">
+          <div class="item-content-inner">
+            <div class="item-header">
+              <span class="item-category">Collection 01</span>
+              <h2 class="item-title">Classical Tutu</h2>
+              <p class="item-jp-title">クラシックチュチュ (Pink)</p>
+            </div>
+            <div class="item-story">
+              <p>
+                舞台の光を浴びて、最も美しく輝く瞬間を。<br />
+                桜のような淡いピンクが、ダンサーの可憐さを引き立てます。
+              </p>
+              <p>
+                伝統的な技法に基づきながらも、<br />
+                現代のダンサーの身体に寄り添う軽やかさとフィット感を追求しました。
+              </p>
+            </div>
+            <div class="item-specs">
+              <dl>
+                <dt>Material</dt>
+                <dd>Silk, Tulle, Swarovski Crystals</dd>
+                <dt>Color</dt>
+                <dd>Pink / Silver / White</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2: Tutu Red -->
+      <article class="lookbook-item reverse" id="tutu-red">
+        <div class="item-image-wrapper">
+          <div class="item-image-inner item-slider">
+            <img src="assets/tutu_red.jpg" alt="Classical Tutu - Red" class="item-main-image" />
+          </div>
+        </div>
+        <div class="item-content-wrapper">
+          <div class="item-content-inner">
+            <div class="item-header">
+              <span class="item-category">Collection 01</span>
+              <h2 class="item-title">Classical Tutu</h2>
+              <p class="item-jp-title">クラシックチュチュ (Red)</p>
+            </div>
+            <div class="item-story">
+              <p>
+                情熱的な赤とゴールドのコントラスト。<br />
+                「ドン・キホーテ」のキトリや「パキータ」など、<br />
+                力強い役柄に最適なデザインです。
+              </p>
+              <p>
+                重厚感のある見た目に反して驚くほど軽く、<br />
+                激しい動きも妨げません。
+              </p>
+            </div>
+            <div class="item-specs">
+              <dl>
+                <dt>Material</dt>
+                <dd>Velvet, Gold Lace, Tulle</dd>
+                <dt>Color</dt>
+                <dd>Red / Gold / Black</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 3: Tutu Purple -->
+      <article class="lookbook-item" id="tutu-purple">
+        <div class="item-image-wrapper">
+          <div class="item-image-inner item-slider">
+            <img src="assets/tutu_purple.jpg" alt="Classical Tutu - Purple" class="item-main-image" />
+          </div>
+        </div>
+        <div class="item-content-wrapper">
+          <div class="item-content-inner">
+            <div class="item-header">
+              <span class="item-category">Collection 01</span>
+              <h2 class="item-title">Classical Tutu</h2>
+              <p class="item-jp-title">クラシックチュチュ (Purple)</p>
+            </div>
+            <div class="item-story">
+              <p>
+                夜空のような深い紫のグラデーション。<br />
+                「リラの精」や「海賊」など、<br />
+                気品あふれる役柄をイメージしました。
+              </p>
+              <p>
+                シルバーの装飾が照明を受けて<br />
+                星屑のように輝きます。
+              </p>
+            </div>
+            <div class="item-specs">
+              <dl>
+                <dt>Material</dt>
+                <dd>Satin, Silver Braid, Tulle</dd>
+                <dt>Color</dt>
+                <dd>Purple / Silver / Navy</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2: Tiara -->
+      <article class="lookbook-item reverse" id="tiara">
+        <div class="item-image-wrapper">
+          <div class="item-image-inner">
+            <img src="assets/collection_tiara.png" alt="Ballet Tiara" class="item-main-image" />
+          </div>
+        </div>
+        <div class="item-content-wrapper">
+          <div class="item-content-inner">
+            <div class="item-header">
+              <span class="item-category">Collection 02</span>
+              <h2 class="item-title">Tiara</h2>
+              <p class="item-jp-title">ティアラ</p>
+            </div>
+            <div class="item-story">
+              <p>
+                チュチュの輝きを、より一層引き立てる至高の輝き。<br />
+                一粒一粒のクリスタルが、踊り手のわずかな動きにも呼応し、<br />
+                舞台上に光の道を描きます。
+              </p>
+              <p>
+                役柄や衣装に合わせたオーダーメイドで、<br />
+                あなただけの物語を完成させます。
+              </p>
+            </div>
+            <div class="item-specs">
+              <dl>
+                <dt>Material</dt>
+                <dd>Gold Wire, Swarovski Crystals, Pearls</dd>
+                <dt>Type</dt>
+                <dd>Custom Design</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 3: Accessories -->
+      <article class="lookbook-item" id="accessories">
+        <div class="item-image-wrapper">
+          <div class="item-image-inner">
+            <img src="assets/collection_accessory.png" alt="Ballet Accessories" class="item-main-image" />
+          </div>
+        </div>
+        <div class="item-content-wrapper">
+          <div class="item-content-inner">
+            <div class="item-header">
+              <span class="item-category">Collection 03</span>
+              <h2 class="item-title">Accessories</h2>
+              <p class="item-jp-title">小物・アクセサリー</p>
+            </div>
+            <div class="item-story">
+              <p>
+                舞台裏でも、日常でも。<br />
+                バレエの手触りを感じられる小物を揃えました。
+              </p>
+              <p>
+                繊細な刺繍を施したシューズケースや、<br />
+                衣装の端切れから生まれたサステナブルなアクセサリー。<br />
+                ギフトにも最適な心ときめくアイテムたちです。
+              </p>
+            </div>
+            <div class="item-actions">
+              <a href="https://minne.com/@la-pas-nuit" target="_blank" class="btn-outline">Order on Minne</a>
+              <a href="index.html#collection" class="btn-text back-link">Back to Gallery</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">MIYAKOYA</div>
+      <ul class="footer-nav">
+        <li><a href="index.html#concept">Concept</a></li>
+        <li><a href="index.html#collection">Collection</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+      </ul>
+      top: 0;
+      flex: 0 0 50%;
+      }
+
+      .lookbook-item .item-image-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      }
+
+      .lookbook-item .item-content-wrapper {
+      width: 50%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 60px;
+      background-color: #ffffff;
+      flex: 0 0 50%;
+      }
+
+      .lookbook-item.reverse .item-content-wrapper {
+      background-color: #fdf5f7;
+      }
+
+      @media (max-width: 768px) {
+
+      .lookbook-item,
+      .lookbook-item.reverse {
+      flex-direction: column;
+      height: auto;
+      min-height: auto;
+      }
+
+      .lookbook-item .item-image-wrapper {
+      width: 100%;
+      height: 60vh;
+      position: relative;
+      flex: none;
+      }
+
+      .lookbook-item .item-content-wrapper {
+      width: 100%;
+      min-height: auto;
+      padding: 60px 20px;
+      flex: none;
+      }
+      }
+
+      /* Slider & Navigation */
+      .item-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      height: 100vh;
+      width: 100%;
+      }
+
+      .item-slider::-webkit-scrollbar {
+      height: 8px;
+      background: transparent;
+      }
+
+      .item-slider::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      }
+
+      .item-slider img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      scroll-snap-align: start;
+      }
+
+      /* Vertical Stack - Layout Fixes */
+      .lookbook-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      /* Subtle separator */
+      }
+
+      .lookbook-item:last-child {
+      border-bottom: none;
+      }
+
+      /* Ensure images cover fully */
+      .item-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      }
+      </style>
+      </head>
+
+      <body>
+        <div class="loading-screen" id="loadingScreen">
+          <div class="logo-mark">MIYAKOYA</div>
+        </div>
+
+        <header class="header">
+          <div class="header-inner">
+            <a href="index.html" class="logo">MIYAKOYA</a>
+            <nav class="nav">
+              <ul class="nav-list">
+                <li><a href="index.html#concept">Concept</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+              </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Menu">
+              <span></span>
+              <span></span>
+            </button>
+            <!-- Item 2: Tiara -->
+            <article class="lookbook-item reverse" id="tiara">
+              <div class="item-image-wrapper">
+                <div class="item-image-inner">
+                  <img src="assets/collection_tiara.png" alt="Ballet Tiara" class="item-main-image" />
+                </div>
+              </div>
+              <div class="item-content-wrapper">
+                <div class="item-content-inner">
+                  <div class="item-header">
+                    <span class="item-category">Collection 02</span>
+                    <h2 class="item-title">Tiara</h2>
+                    <p class="item-jp-title">ティアラ</p>
+                  </div>
+                  <div class="item-story">
+                    <p>
+                      チュチュの輝きを、より一層引き立てる至高の輝き。<br />
+                      一粒一粒のクリスタルが、踊り手のわずかな動きにも呼応し、<br />
+                      舞台上に光の道を描きます。
+                    </p>
+                    <p>
+                      役柄や衣装に合わせたオーダーメイドで、<br />
+                      あなただけの物語を完成させます。
+                    </p>
+                  </div>
+                  <div class="item-specs">
+                    <dl>
+                      <dt>Material</dt>
+                      <dd>Gold Wire, Swarovski Crystals, Pearls</dd>
+                      <dt>Type</dt>
+                      <dd>Custom Design</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Item 3: Accessories -->
+            <article class="lookbook-item" id="accessories">
+              <div class="item-image-wrapper">
+                <div class="item-image-inner">
+                  <img src="assets/collection_accessory.png" alt="Ballet Accessories" class="item-main-image" />
+                </div>
+              </div>
+              <div class="item-content-wrapper">
+                <div class="item-content-inner">
+                  <div class="item-header">
+                    <span class="item-category">Collection 03</span>
+                    <h2 class="item-title">Accessories</h2>
+                    <p class="item-jp-title">小物・アクセサリー</p>
+                  </div>
+                  <div class="item-story">
+                    <p>
+                      舞台裏でも、日常でも。<br />
+                      バレエの手触りを感じられる小物を揃えました。
+                    </p>
+                    <p>
+                      繊細な刺繍を施したシューズケースや、<br />
+                      衣装の端切れから生まれたサステナブルなアクセサリー。<br />
+                      ギフトにも最適な心ときめくアイテムたちです。
+                    </p>
+                  </div>
+                  <div class="item-actions">
+                    <a href="https://minne.com/@la-pas-nuit" target="_blank" class="btn-outline">Order on Minne</a>
+                    <a href="index.html#collection" class="btn-text back-link">Back to Gallery</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          </main>
+
+          <footer class="footer">
+            <div class="container">
+              <div class="footer-logo">MIYAKOYA</div>
+              <ul class="footer-nav">
+                <li><a href="index.html#concept">Concept</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+              </ul>
+              <p class="copyright">&copy; 2024 MIYAKOYA. All Rights Reserved.</p>
+            </div>
+          </footer>
+
+          <script src="js/main.js"></script>
+
+      </body>
+
+</html>

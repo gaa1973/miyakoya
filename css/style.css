@@ -1,17 +1,24 @@
 :root {
   /* Classic Elegance Palette */
-  --color-primary: #4a3b32; /* Darker, richer brown */
-  --color-secondary: #8c7b70; /* Muted taupe */
-  --color-accent: #c5a059; /* Muted Gold (less yellow) */
-  --color-rose: #e0bfb8; /* Dusty Rose */
-  --color-bg-pink: #fff5f8; /* Very subtle pink, almost white */
+  --color-primary: #4a3b32;
+  /* Darker, richer brown */
+  --color-secondary: #8c7b70;
+  /* Muted taupe */
+  --color-accent: #c5a059;
+  /* Muted Gold (less yellow) */
+  --color-rose: #e0bfb8;
+  /* Dusty Rose */
+  --color-bg-pink: #fff5f8;
+  /* Very subtle pink, almost white */
   --color-white: #ffffff;
   --color-glass: rgba(255, 255, 255, 0.6);
   --color-glass-border: rgba(255, 255, 255, 0.8);
 
   /* Typography */
-  --font-heading: "Cormorant Garamond", serif; /* Classic Serif */
-  --font-body: "Zen Old Mincho", serif; /* Classic Mincho */
+  --font-heading: "Cormorant Garamond", serif;
+  /* Classic Serif */
+  --font-body: "Zen Old Mincho", serif;
+  /* Classic Mincho */
 
   /* Layout */
   --container-width: 1200px;
@@ -19,12 +26,13 @@
 
   /* Effects */
   --transition: all 0.6s ease;
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.03);
+  --shadow-soft: 0 10px 30px rgba(53, 12, 12, 0.03);
   --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
   --glass-blur: blur(12px);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Zen+Old+Mincho:wght@400;500;600&display=swap");
+
 
 * {
   margin: 0;
@@ -102,6 +110,7 @@ img {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -306,14 +315,17 @@ body.home .header:not(.scrolled) .nav-list a {
     transform: scaleY(0);
     transform-origin: top;
   }
+
   50% {
     transform: scaleY(1);
     transform-origin: top;
   }
+
   51% {
     transform: scaleY(1);
     transform-origin: bottom;
   }
+
   100% {
     transform: scaleY(0);
     transform-origin: bottom;
@@ -456,7 +468,8 @@ body.home .header:not(.scrolled) .nav-list a {
   width: 100%;
   height: 500px;
   object-fit: cover;
-  border-radius: 200px 200px 0 0; /* Arch shape */
+  border-radius: 200px 200px 0 0;
+  /* Arch shape */
   box-shadow: var(--shadow-soft);
   transition: transform 1s ease;
 }
@@ -652,6 +665,7 @@ body.home .header:not(.scrolled) .nav-list a {
     opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -663,9 +677,11 @@ body.home .header:not(.scrolled) .nav-list a {
   .header {
     padding: 20px;
   }
+
   .nav {
     display: none;
   }
+
   .menu-toggle {
     display: block;
     width: 30px;
@@ -674,6 +690,7 @@ body.home .header:not(.scrolled) .nav-list a {
     background: transparent;
     border: none;
   }
+
   .menu-toggle span {
     position: absolute;
     width: 100%;
@@ -682,9 +699,11 @@ body.home .header:not(.scrolled) .nav-list a {
     left: 0;
     transition: var(--transition);
   }
+
   .menu-toggle span:first-child {
     top: 0;
   }
+
   .menu-toggle span:last-child {
     bottom: 0;
   }
@@ -705,28 +724,36 @@ body.home .header:not(.scrolled) .nav-list a {
   .gallery-grid {
     grid-template-columns: 1fr;
   }
+
   .gallery-item img {
     height: 400px;
   }
+
   .logo-mark {
-    font-size: 10vw;       /* ← 画面幅に合わせて自動調整 */
-    letter-spacing: 0.2em; /* 文字間隔はそのままでOK */
+    font-size: 10vw;
+    /* ← 画面幅に合わせて自動調整 */
+    letter-spacing: 0.2em;
+    /* 文字間隔はそのままでOK */
     width: 100%;
     text-align: center;
-    padding: 0 5%;         /* 左右に少し余白を持たせる */
+    padding: 0 5%;
+    /* 左右に少し余白を持たせる */
   }
+
   /* メニューが開いたときのスタイル（ドロップダウンにする） */
   .nav {
     /* display: none; は既存のコードにあるのでそのままでOKですが、
        JSで display: block になったときのスタイルを定義します */
     position: absolute;
-    top: 100%;       /* ヘッダーの真下に配置 */
+    top: 100%;
+    /* ヘッダーの真下に配置 */
     left: 0;
     width: 100%;
-    background: rgba(255, 240, 245, 0.98); /* 背景色（薄いピンク） */
+    background: rgba(255, 240, 245, 0.98);
+    /* 背景色（薄いピンク） */
     padding: 30px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
 
   /* リンクを縦並びにする */
@@ -756,7 +783,8 @@ body.home .header:not(.scrolled) .nav-list a {
   position: sticky;
   top: 0;
   overflow: hidden;
-  background-color: #f0e6e6; /* Fallback color */
+  background-color: #f0e6e6;
+  /* Fallback color */
 }
 
 .item-image-inner {
@@ -800,6 +828,7 @@ body.home .header:not(.scrolled) .nav-list a {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

@@ -1,0 +1,154 @@
+/* Lookbook Layout */
+.vertical-lookbook {
+    flex-direction: column;
+    display: block;
+    /* Override flex from item-page-container */
+    background-color: var(--color-bg-pink);
+}
+
+.lookbook-item {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* Reverse Layout (Zigzag) */
+.lookbook-item.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Make image sticky only within its container if possible, 
+   but for simple implementation, we make image wrapper height 100vh and similar to before.
+   However, we need to handle the content side. */
+
+.lookbook-item .item-image-wrapper {
+    width: 50%;
+    /* Explicit width */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    flex: 0 0 50%;
+}
+
+.lookbook-item .item-image-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.lookbook-item .item-content-wrapper {
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 60px;
+    background-color: #ffffff;
+    flex: 0 0 50%;
+}
+
+/* Alternate Backgrounds */
+.lookbook-item.reverse .item-content-wrapper {
+    background-color: #fdf5f7;
+    /* Slightly different pink for variety */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .lookbook-item,
+    .lookbook-item.reverse {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
+
+    .lookbook-item .item-image-wrapper {
+        width: 100%;
+        height: 60vh;
+        position: relative;
+        flex: none;
+    }
+
+    .lookbook-item .item-content-wrapper {
+        width: 100%;
+        min-height: auto;
+        padding: 60px 20px;
+        flex: none;
+    }
+}
+
+/* =========================================
+   Image Slider & Navigation (Consolidated)
+   ========================================= */
+
+.item-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    height: 100vh;
+    width: 100%;
+    /* scrollbar-width: none; <-- PC scroll fix */
+}
+
+/* Scrollbar styling */
+.item-slider::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+}
+
+.item-slider::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.item-slider img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scroll-snap-align: start;
+}
+
+/* Navigation Buttons */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff0000 !important;
+    /* DEBUG: RED */
+    border: 2px solid white !important;
+    color: white !important;
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 99999 !important;
+    /* DEBUG: Topmost */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-family: "Cormorant Garamond", serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    opacity: 1 !important;
+}
+
+.slider-nav:hover {
+    background: #cc0000 !important;
+    transform: scale(1.1);
+}
+
+.slider-nav.prev {
+    left: 20px !important;
+}
+
+.slider-nav.next {
+    right: 20px !important;
+}
+
+.slider-nav.next {
+    right: 30px;
+    padding-left: 4px;
+}
