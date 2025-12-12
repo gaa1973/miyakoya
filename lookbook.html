@@ -31,6 +31,11 @@
         min-height: 100vh;
         width: 100% !important;
         position: relative;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .lookbook-item:last-child {
+        border-bottom: none;
       }
 
       .lookbook-item.reverse {
@@ -67,31 +72,7 @@
         background-color: #fdf5f7;
       }
 
-      /* Mobile Responsive */
-      @media (max-width: 768px) {
-        .lookbook-item,
-        .lookbook-item.reverse {
-          flex-direction: column;
-          height: auto;
-          min-height: auto;
-        }
-
-        .lookbook-item .item-image-wrapper {
-          width: 100% !important;
-          height: 60vh;
-          position: relative;
-          flex: none !important;
-        }
-
-        .lookbook-item .item-content-wrapper {
-          width: 100% !important;
-          min-height: auto;
-          padding: 60px 20px;
-          flex: none !important;
-        }
-      }
-
-      /* Slider & Navigation - Preserved Styles */
+      /* Slider and Image Styles */
       .item-slider {
         display: flex;
         overflow-x: auto;
@@ -104,7 +85,8 @@
         display: none;
       }
 
-      .item-slider img {
+      .item-slider img,
+      .item-main-image {
         flex: 0 0 100%;
         width: 100%;
         height: 100%;
@@ -112,23 +94,81 @@
         scroll-snap-align: start;
       }
 
-      /* Common Styles */
-      .lookbook-item {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .lookbook-item,
+        .lookbook-item.reverse {
+          flex-direction: column;
+          height: auto;
+          min-height: auto;
+        }
+
+        .lookbook-item .item-image-wrapper {
+          width: 100% !important;
+          height: 50vh; /* Reduced from 60vh for better visibility of text */
+          position: relative;
+          flex: none !important;
+        }
+
+        .lookbook-item .item-content-wrapper {
+          width: 100% !important;
+          min-height: auto;
+          padding: 60px 20px;
+          flex: none !important;
+          padding-bottom: 100px; /* Space for sticky bar */
+        }
       }
 
-      .lookbook-item:last-child {
-        border-bottom: none;
-      }
-
-      .item-main-image {
+      /* Sticky Action Bar (Mobile Only) */
+      .sticky-action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        background: rgba(255, 255, 255, 0.95);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 15px 20px;
+        z-index: 1000;
+        display: none; /* Hidden on desktop */
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .sticky-action-bar.visible {
+        transform: translateY(0);
+      }
+
+      .sticky-item-name {
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        color: var(--color-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 50%;
+      }
+
+      .sticky-btn {
+        background-color: var(--color-primary);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+      }
+
+      @media (max-width: 768px) {
+        .sticky-action-bar {
+          display: flex;
+        }
       }
     </style>
   </head>
-
   <body>
     <div class="loading-screen" id="loadingScreen">
       <div class="logo-mark">MIYAKOYA</div>
@@ -603,6 +643,13 @@
           </div>
         </article>
       </div>
+
+    <!-- Sticky Action Bar -->
+    <div class="sticky-action-bar" id="stickyActionBar">
+      <span class="sticky-item-name" id="stickyItemName">Wait...</span>
+      <a href="#" class="sticky-btn" id="stickyBtn" target="_blank">View on BASE</a>
+    </div>
+
     </main>
 
     <footer class="footer">
@@ -618,5 +665,58 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      // Sticky Action Bar Logic
+      document.addEventListener('DOMContentLoaded', () => {
+        const stickyBar = document.getElementById('stickyActionBar');
+        const stickyName = document.getElementById('stickyItemName');
+        const stickyBtn = document.getElementById('stickyBtn');
+        const items = document.querySelectorAll('.lookbook-item');
+
+        if (!stickyBar || items.length === 0) return;
+
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.4
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const item = entry.target;
+              // Find the BASE link in this item
+              const baseLink = item.querySelector('.item-actions .btn-outline');
+              const title = item.querySelector('.item-jp-title') || item.querySelector('.item-title');
+
+              if (baseLink && title) {
+                stickyBtn.href = baseLink.href;
+                stickyName.textContent = title.textContent;
+                stickyBar.classList.add('visible');
+              } else {
+                 stickyBar.classList.remove('visible');
+              }
+            }
+          });
+        }, observerOptions);
+
+        items.forEach(item => {
+          observer.observe(item);
+        });
+
+        // Hide bar when at footer
+        const footerObserver = new IntersectionObserver((entries) => {
+             entries.forEach(entry => {
+                 if(entry.isIntersecting) {
+                     stickyBar.classList.remove('visible');
+                 } else {
+                     // logic to show again if in items
+                 }
+             });
+        });
+        const footer = document.querySelector('.footer');
+        if(footer) footerObserver.observe(footer);
+      });
+    </script>
   </body>
 </html>
