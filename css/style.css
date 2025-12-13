@@ -22,7 +22,7 @@
 
   /* Layout */
   --container-width: 1200px;
-  --header-height: 100px;
+  --header-height: 140px;
 
   /* Effects */
   --transition: all 0.6s ease;
@@ -1215,14 +1215,14 @@ body.home .header:not(.scrolled) .nav-list a {
   max-width: 480px;
   background: #fff;
   padding: 40px;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
   transition: transform 0.3s ease;
 }
 
 .service-col:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
 .order-col {
@@ -1243,8 +1243,8 @@ body.home .header:not(.scrolled) .nav-list a {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   font-weight: 600;
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .service-catch {
@@ -1259,7 +1259,7 @@ body.home .header:not(.scrolled) .nav-list a {
   text-align: center;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 1px dotted rgba(0,0,0,0.1);
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
 }
 
 .price-label {
@@ -1374,4 +1374,122 @@ body.home .header:not(.scrolled) .nav-list a {
     width: 100%;
     margin-bottom: 30px;
   }
+}
+
+/* Utility Classes for Responsive Line Breaks */
+.pc-only {
+  display: inline;
+}
+.sp-only {
+  display: none;
+}
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+  .sp-only {
+    display: inline;
+  }
+}
+
+/* Logo Color Utilities */
+.logo-white { filter: invert(1); mix-blend-mode: screen; }
+.logo-dark { mix-blend-mode: multiply; }
+
+/* Header Logo Responsive Color */
+.logo-responsive { transition: filter 0.3s ease, mix-blend-mode 0.3s ease; mix-blend-mode: multiply; }
+
+/* Home Page: White Logo on Transparent Header */
+body.home .header:not(.scrolled) .logo-responsive { filter: invert(1); mix-blend-mode: screen; }
+
+/* Home Page: Dark Logo on Scrolled Header */
+body.home .header.scrolled .logo-responsive { filter: none; mix-blend-mode: multiply; }
+
+@media (max-width: 768px) {
+  .logo-white { filter: invert(1); mix-blend-mode: screen; }
+  .sp-logo-size { width: 200px !important; height: auto !important; }
+}
+
+/* Enforce Logo Size Override */
+.logo img {
+  height: 100px !important;
+  width: auto !important;
+  max-width: none !important;
+}
+.header-inner {
+  align-items: center;
+}
+
+/* Logo Color Utilities */
+.logo-white {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+.logo-dark {
+  mix-blend-mode: multiply;
+}
+
+/* Header Logo Responsive Color */
+.logo-responsive {
+  transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+/* Home Page: White Logo on Transparent Header */
+body.home .header:not(.scrolled) .logo-responsive {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+/* Home Page: Dark Logo on Scrolled Header */
+body.home .header.scrolled .logo-responsive {
+  filter: none;
+  mix-blend-mode: multiply;
+}
+
+
+@media (max-width: 768px) {
+  .logo-white {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+}
+
+/* Enforce Logo Size Override */
+.logo img {
+  height: 100px !important;
+  width: auto !important;
+  max-width: none !important;
+  transform: scale(1.8); /* Zoom in to counteract image whitespace */
+  transform-origin: center;
+}
+.header-inner {
+  align-items: center;
+}
+
+/* Logo Color Utilities */
+.logo-white {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+.logo-dark {
+  mix-blend-mode: multiply;
+}
+
+/* Header Logo Responsive Color */
+.logo-responsive {
+  transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+/* Home Page: White Logo on Transparent Header */
+body.home .header:not(.scrolled) .logo-responsive {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+/* Home Page: Dark Logo on Scrolled Header */
+body.home .header.scrolled .logo-responsive {
+  filter: none;
+  mix-blend-mode: multiply;
 }
