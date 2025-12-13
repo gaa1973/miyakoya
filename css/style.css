@@ -20,9 +20,7 @@
   --font-body: "Zen Old Mincho", serif;
   /* Classic Mincho */
 
-  /* Layout */
-  --container-width: 1200px;
-  --header-height: 140px;
+  --header-height: 100px;
 
   /* Effects */
   --transition: all 0.6s ease;
@@ -1457,10 +1455,10 @@ body.home .header.scrolled .logo-responsive {
 
 /* Enforce Logo Size Override */
 .logo img {
-  height: 100px !important;
+  height: 60px !important; /* Fits within 100px header */
   width: auto !important;
   max-width: none !important;
-  transform: scale(1.8); /* Zoom in to counteract image whitespace */
+  transform: scale(2.8); /* Optical zoom to make it look ~170px */
   transform-origin: center;
 }
 .header-inner {
