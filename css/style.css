@@ -1499,25 +1499,39 @@ body.home .header.scrolled .logo-responsive {
 .footer .nav-list {
   display: flex;
   justify-content: center;
-  gap: 15px; /* Reduced gap */
-  flex-wrap: wrap; /* Ensure effective wrapping */
-  padding: 0 10px; /* Add visual padding guards */
-  margin: 0 auto; /* Center block */
-  width: 100%; /* Ensure full width availability */
-  max-width: 100%;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap !important; /* Force wrap */
+  padding: 0 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
 }
 
 .footer .nav-list li {
-   flex-shrink: 0; /* Prevent odd shrinking */
+   flex-shrink: 0;
+   display: inline-block; /* Ensure list items behave */
 }
 
 .footer .nav-list li a {
+  display: inline-block; /* Ensure click area */
   color: var(--color-text);
   font-family: var(--font-heading);
   text-decoration: none;
-  font-size: 0.85rem; /* Slightly smaller for safety */
+  font-size: 0.9rem;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Keep words together */
+  white-space: nowrap;
+  padding: 5px 0; /* Add touch target vertical spacing */
+}
+
+/* Mobile Specific Footer Adjustments */
+@media (max-width: 480px) {
+  .footer .nav-list {
+    gap: 15px 10px; /* Row gap 15px, Col gap 10px */
+    display: grid; /* Use grid for better control on small screens */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Auto fit columns */
+    justify-items: center;
+  }
 }
 
 .footer .nav-list li a:hover {
