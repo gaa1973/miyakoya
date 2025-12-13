@@ -1528,22 +1528,22 @@ body.home .header.scrolled .logo-responsive {
 @media (max-width: 768px) {
   .footer .nav-list {
     display: flex;
-    flex-wrap: wrap !important;
-    justify-content: center;
-    gap: 15px 20px !important; /* Row gap 15px, Column gap 20px */
+    flex-direction: column; /* Force vertical stack (1 link per line) */
+    align-items: center;
+    gap: 15px;
     width: 100%;
-    max-width: 300px; /* Constrain width to force wrap on diverse screens */
     margin: 0 auto;
   }
   
   .footer .nav-list li {
-    width: auto; /* Allow natural width */
+    width: auto;
     margin: 0;
   }
   
   .footer .nav-list li a {
-    font-size: 0.85rem;
-    padding: 5px;
+    font-size: 0.95rem; /* Slightly larger for touch */
+    padding: 5px 0;
+    display: block;
   }
 }
 
