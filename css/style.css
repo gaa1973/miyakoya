@@ -1525,12 +1525,25 @@ body.home .header.scrolled .logo-responsive {
 }
 
 /* Mobile Specific Footer Adjustments */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .footer .nav-list {
-    gap: 15px 10px; /* Row gap 15px, Col gap 10px */
-    display: grid; /* Use grid for better control on small screens */
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Auto fit columns */
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap !important;
+    justify-content: center;
+    gap: 15px 20px !important; /* Row gap 15px, Column gap 20px */
+    width: 100%;
+    max-width: 300px; /* Constrain width to force wrap on diverse screens */
+    margin: 0 auto;
+  }
+  
+  .footer .nav-list li {
+    width: auto; /* Allow natural width */
+    margin: 0;
+  }
+  
+  .footer .nav-list li a {
+    font-size: 0.85rem;
+    padding: 5px;
   }
 }
 
