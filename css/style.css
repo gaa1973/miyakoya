@@ -1487,7 +1487,7 @@ body.home .header.scrolled .logo-responsive {
 
 /* Footer Logo Adjustments */
 .footer-logo img {
-  height: 80px !important;
+  height: 120px !important; /* Increased from 80px to 120px */
   width: auto !important;
   max-width: none !important;
   transform: none !important;
@@ -1499,18 +1499,25 @@ body.home .header.scrolled .logo-responsive {
 .footer .nav-list {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Reduced gap for mobile safety */
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
+  gap: 15px; /* Reduced gap */
+  flex-wrap: wrap; /* Ensure effective wrapping */
+  padding: 0 10px; /* Add visual padding guards */
+  margin: 0 auto; /* Center block */
+  width: 100%; /* Ensure full width availability */
+  max-width: 100%;
+}
+
+.footer .nav-list li {
+   flex-shrink: 0; /* Prevent odd shrinking */
 }
 
 .footer .nav-list li a {
   color: var(--color-text);
   font-family: var(--font-heading);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Slightly smaller for safety */
   transition: color 0.3s ease;
+  white-space: nowrap; /* Keep words together */
 }
 
 .footer .nav-list li a:hover {
@@ -1536,6 +1543,26 @@ body.home .header.scrolled .logo-responsive {
      max-height: 50px !important;
   }
 }
+
+/* Q&A / FAQ Styling Adjustment */
+.faq-item {
+  text-align: center; /* Center Q&A text */
+  margin-bottom: 40px;
+  max-width: 800px; /* Ensure readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-question {
+  display: inline-block; /* Helps with centering */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-answer {
+  text-align: center;
+}
+
 
 .header-inner {
   align-items: center;
