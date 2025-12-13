@@ -128,14 +128,14 @@ img {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 40px 60px;
+  padding: 20px 40px; /* Reduced vertical padding, standard horizontal */
   transition: var(--transition);
 }
 
 .header.scrolled {
-  background: rgba(255, 240, 245, 0.9);
+  background: rgba(255, 240, 245, 0.95); /* Slightly more opaque */
   backdrop-filter: blur(10px);
-  padding: 20px 60px;
+  padding: 10px 40px;
   box-shadow: var(--shadow-glass);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -1454,13 +1454,89 @@ body.home .header.scrolled .logo-responsive {
 }
 
 /* Enforce Logo Size Override */
-.logo img {
-  height: 60px !important; /* Fits within 100px header */
+.header .logo img {
+  height: 60px !important;
   width: auto !important;
   max-width: none !important;
-  transform: scale(2.8); /* Optical zoom to make it look ~170px */
-  transform-origin: center;
+  transform: scale(2.8);
+  transform-origin: left center;
+  margin-left: 10px;
+  transition: all 0.3s ease;
 }
+
+/* Scrolled State: Move Logo Left */
+.header.scrolled .logo img {
+  margin-left: -10px; /* Move slightly more left */
+  transform: scale(2.5);
+}
+
+/* Footer Design - Reverted to Light Theme */
+.footer {
+  background-color: #f9f9f9; /* Light gray background matching site tone */
+  color: var(--color-text); /* Standard text color */
+  padding: 40px 0 !important;
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Footer Logo Adjustments */
+.footer-logo img {
+  height: 80px !important;
+  width: auto !important;
+  max-width: none !important;
+  transform: none !important;
+  margin-bottom: 10px;
+  filter: none !important; /* Remove inversion to show original logo color */
+}
+
+/* Footer Nav */
+.footer .nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Reduced gap for mobile safety */
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .nav-list li a {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer .nav-list li a:hover {
+  color: var(--color-accent);
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* Mobile Header Adjustment */
+@media (max-width: 768px) {
+  .header {
+    padding: 20px !important; /* Reduce padding on mobile */
+  }
+  .header.scrolled {
+    padding: 10px 20px !important;
+  }
+  .header .logo img {
+     /* Ensure it doesn't overflow */
+     max-height: 50px !important;
+  }
+}
+
 .header-inner {
   align-items: center;
 }
