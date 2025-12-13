@@ -48,7 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      
+      // If valid external link or empty, allow default or return
+      if (!targetId || !targetId.startsWith("#") || targetId === "#") {
+        if (targetId && !targetId.startsWith("#")) {
+             // It's a real link (e.g. changed dynamically), so we should navigate manually
+             // because we already called e.preventDefault()
+             window.open(targetId, this.target || '_self');
+             return;
+        }
+        return;
+      }
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {

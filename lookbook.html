@@ -681,8 +681,8 @@
 
         const observerOptions = {
           root: null,
-          rootMargin: '0px',
-          threshold: 0.4
+          rootMargin: '-10% 0px -10% 0px', /* Trigger comfortably within viewport */
+          threshold: 0.1 /* Lower threshold to ensure it catches even large items on small screens */
         };
 
         const observer = new IntersectionObserver((entries) => {
