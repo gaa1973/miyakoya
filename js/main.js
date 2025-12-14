@@ -33,13 +33,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Toggle Mobile CTA on Index Page
     const mobileCta = document.querySelector(".mobile-cta");
-    if (mobileCta) {
-      if (window.scrollY > 300) { // Show after scrolling past hero/intro
+    const collectionSection = document.getElementById("collection");
+    let isCollectionVisible = false;
+
+    // Observer to detect if Collection section is in view
+    if (collectionSection && mobileCta) {
+      const collectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          isCollectionVisible = entry.isIntersecting;
+          updateMobileCta();
+        });
+      }, { threshold: 0.1 }); // Trigger as soon as 10% is visible
+      collectionObserver.observe(collectionSection);
+    }
+
+    function updateMobileCta() {
+      if (!mobileCta) return;
+      
+      // logic: Show if scrolled past hero (>300) AND collection is NOT visible
+      if (window.scrollY > 300 && !isCollectionVisible) {
         mobileCta.classList.add("cta-visible");
       } else {
         mobileCta.classList.remove("cta-visible");
       }
     }
+
+    // Call on scroll
+    updateMobileCta();
   });
 
   // Mobile Menu Toggle
