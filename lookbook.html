@@ -196,7 +196,7 @@
     <main>
       <div class="item-page-container vertical-layout-final">
         <!-- Item 1: Tutu Lilac -->
-        <article class="lookbook-item" id="tutu-lilac">
+        <article class="lookbook-item" id="tutu-lilac" data-sticky-label="リラ">
           <div class="item-image-wrapper">
             <div class="item-image-inner item-slider">
               <img
@@ -241,7 +241,7 @@
         </article>
 
         <!-- Item 2: Tutu Aurora -->
-        <article class="lookbook-item reverse" id="tutu-aurora">
+        <article class="lookbook-item reverse" id="tutu-aurora" data-sticky-label="オーロラ姫">
           <div class="item-image-wrapper">
             <div class="item-image-inner item-slider">
               <img
@@ -286,7 +286,7 @@
         </article>
 
         <!-- Item 3: Tutu Pink -->
-        <article class="lookbook-item" id="tutu-pink">
+        <article class="lookbook-item" id="tutu-pink" data-sticky-label="アレルキナーダ">
           <div class="item-image-wrapper">
             <div class="item-image-inner item-slider">
               <img
@@ -344,7 +344,7 @@
             <div class="item-content-inner">
               <div class="item-header">
                 <span class="item-category">Collection 04</span>
-                <h2 class="item-title">Classical Tutu</h2>
+                <h2 class="item-title">Georgette</h2>
                 <p class="item-jp-title">ジョーゼット (海賊)</p>
               </div>
               <div class="item-story">
@@ -375,7 +375,7 @@
         </article>
 
       <!-- Item 5: Tutu Blue -->
-      <article class="lookbook-item" id="tutu-blue">
+      <article class="lookbook-item" id="tutu-blue" data-sticky-label="フロリナ">
         <div class="item-image-wrapper">
           <div class="item-image-inner item-slider">
             <img src="assets/tutu_blue.jpg" alt="Classical Tutu - Blue" class="item-main-image" />
@@ -656,7 +656,7 @@
 
     <footer class="footer">
       <div class="container">
-        <div class="footer-logo"><img src="assets/miyakoya_logo.png" alt="MIYAKOYA"></div>
+        <div class="footer-logo"><img src="assets/miyakoya_sub_logo.png" alt="MIYAKOYA"></div>
         <ul class="nav-list">
           <li><a href="index.html#concept">Concept</a></li>
           <li><a href="index.html#collection">Collection</a></li>
@@ -695,7 +695,8 @@
 
               if (baseLink && title) {
                 stickyBtn.href = baseLink.href;
-                stickyName.textContent = title.textContent;
+                // Use data-sticky-label if available, otherwise fallback to title text
+                stickyName.textContent = item.dataset.stickyLabel || title.textContent;
                 stickyBar.classList.add('visible');
               } else {
                  stickyBar.classList.remove('visible');

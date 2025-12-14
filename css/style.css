@@ -1487,7 +1487,7 @@ body.home .header.scrolled .logo-responsive {
 
 /* Footer Logo Adjustments */
 .footer-logo img {
-  height: 120px !important; /* Increased from 80px to 120px */
+  height: 160px !important; /* Increased from 120px to 160px */
   width: auto !important;
   max-width: none !important;
   transform: none !important;
