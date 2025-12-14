@@ -1677,6 +1677,14 @@ body.home .header.scrolled .logo-responsive {
     width: auto;
     z-index: 9999;
     pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .mobile-cta.cta-visible {
+    opacity: 1;
+    visibility: visible;
   }
 
   .mobile-cta-btn {

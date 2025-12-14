@@ -30,6 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       header.classList.remove("scrolled");
     }
+
+    // Toggle Mobile CTA on Index Page
+    const mobileCta = document.querySelector(".mobile-cta");
+    if (mobileCta) {
+      if (window.scrollY > 300) { // Show after scrolling past hero/intro
+        mobileCta.classList.add("cta-visible");
+      } else {
+        mobileCta.classList.remove("cta-visible");
+      }
+    }
   });
 
   // Mobile Menu Toggle
