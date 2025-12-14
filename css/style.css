@@ -1391,21 +1391,47 @@ body.home .header:not(.scrolled) .nav-list a {
 }
 
 /* Logo Color Utilities */
-.logo-white { filter: invert(1); mix-blend-mode: screen; }
-.logo-dark { mix-blend-mode: multiply; }
+.logo-white {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+.logo-dark {
+  mix-blend-mode: multiply;
+}
 
 /* Header Logo Responsive Color */
-.logo-responsive { transition: filter 0.3s ease, mix-blend-mode 0.3s ease; mix-blend-mode: multiply; }
+.logo-responsive {
+  transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+  mix-blend-mode: multiply;
+}
 
 /* Home Page: White Logo on Transparent Header */
-body.home .header:not(.scrolled) .logo-responsive { filter: invert(1); mix-blend-mode: screen; }
+body.home .header:not(.scrolled) .logo-responsive {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
 
 /* Home Page: Dark Logo on Scrolled Header */
-body.home .header.scrolled .logo-responsive { filter: none; mix-blend-mode: multiply; }
+body.home .header.scrolled .logo-responsive {
+  filter: none;
+  mix-blend-mode: multiply;
+}
 
 @media (max-width: 768px) {
-  .logo-white { filter: invert(1); mix-blend-mode: screen; }
-  .sp-logo-size { width: 200px !important; height: auto !important; }
+  .logo-white {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+  .sp-logo-size {
+    width: 200px !important;
+    height: auto !important;
+  }
+  .item-actions {
+    display: none;
+  }
+  .item-specs {
+    margin-bottom: 0;
+  }
 }
 
 /* Enforce Logo Size Override */
@@ -1444,7 +1470,6 @@ body.home .header.scrolled .logo-responsive {
   filter: none;
   mix-blend-mode: multiply;
 }
-
 
 @media (max-width: 768px) {
   .logo-white {
@@ -1509,8 +1534,8 @@ body.home .header.scrolled .logo-responsive {
 }
 
 .footer .nav-list li {
-   flex-shrink: 0;
-   display: inline-block; /* Ensure list items behave */
+  flex-shrink: 0;
+  display: inline-block; /* Ensure list items behave */
 }
 
 .footer .nav-list li a {
@@ -1534,12 +1559,12 @@ body.home .header.scrolled .logo-responsive {
     width: 100%;
     margin: 0 auto;
   }
-  
+
   .footer .nav-list li {
     width: auto;
     margin: 0;
   }
-  
+
   .footer .nav-list li a {
     font-size: 0.95rem; /* Slightly larger for touch */
     padding: 5px 0;
@@ -1566,8 +1591,8 @@ body.home .header.scrolled .logo-responsive {
     padding: 10px 20px !important;
   }
   .header .logo img {
-     /* Ensure it doesn't overflow */
-     max-height: 50px !important;
+    /* Ensure it doesn't overflow */
+    max-height: 50px !important;
   }
 }
 
@@ -1589,7 +1614,6 @@ body.home .header.scrolled .logo-responsive {
 .faq-answer {
   text-align: center;
 }
-
 
 .header-inner {
   align-items: center;
@@ -1630,32 +1654,50 @@ body.home .header.scrolled .logo-responsive {
   display: none; /* Hidden by default (Desktop) */
 }
 
+/* Utility for SEO-only text */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 @media (max-width: 768px) {
   .mobile-cta {
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    max-width: 400px;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 16px 0;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 4px;
+    width: auto;
     z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    letter-spacing: 0.05em;
-    transition: background-color 0.3s ease;
+    pointer-events: none;
   }
 
-  .mobile-cta:hover,
-  .mobile-cta:active {
-    background-color: #333;
+  .mobile-cta-btn {
+    display: inline-block;
+    pointer-events: auto;
+    background-color: rgba(20, 20, 20, 0.85);
+    color: #fff;
+    padding: 12px 32px;
+    font-size: 0.9rem;
+    font-family: 'Noto Serif JP', serif;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .mobile-cta-btn:hover,
+  .mobile-cta-btn:active {
+    background-color: rgba(0, 0, 0, 0.95);
+    transform: scale(1.02);
   }
 }
