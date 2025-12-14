@@ -41,6 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.style.display = nav.style.display === "block" ? "none" : "block";
       menuToggle.classList.toggle("active");
     });
+
+    // Close menu when a link is clicked
+    const navLinks = document.querySelectorAll(".nav-list a");
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          nav.style.display = "none";
+          menuToggle.classList.remove("active");
+        }
+      });
+    });
   }
 
   // Smooth Scroll with Offset
@@ -48,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
-      
+
       // If valid external link or empty, allow default or return
       if (!targetId || !targetId.startsWith("#") || targetId === "#") {
         if (targetId && !targetId.startsWith("#")) {
-             // It's a real link (e.g. changed dynamically), so we should navigate manually
-             // because we already called e.preventDefault()
-             window.open(targetId, this.target || '_self');
-             return;
+          // It's a real link (e.g. changed dynamically), so we should navigate manually
+          // because we already called e.preventDefault()
+          window.open(targetId, this.target || "_self");
+          return;
         }
         return;
       }
