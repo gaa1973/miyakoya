@@ -33,27 +33,79 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Toggle Mobile CTA on Index Page
     const mobileCta = document.querySelector(".mobile-cta");
+    const mobileCtaBtn = mobileCta
+      ? mobileCta.querySelector(".mobile-cta-btn")
+      : null;
     const collectionSection = document.getElementById("collection");
+    const flowSection = document.querySelector(".service-flow"); // Order Flow
+
     let isCollectionVisible = false;
+    let isFlowVisible = false;
 
     // Observer to detect if Collection section is in view
     if (collectionSection && mobileCta) {
-      const collectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          isCollectionVisible = entry.isIntersecting;
-          updateMobileCta();
-        });
-      }, { threshold: 0.1 }); // Trigger as soon as 10% is visible
+      const collectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isCollectionVisible = entry.isIntersecting;
+            updateMobileCta();
+          });
+        },
+        { threshold: 0.1 }
+      );
       collectionObserver.observe(collectionSection);
     }
 
+    // Observer to detect if Order Flow section is in view
+    if (flowSection && mobileCta) {
+      const flowObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isFlowVisible = entry.isIntersecting;
+            updateMobileCta();
+          });
+        },
+        { threshold: 0.1 }
+      );
+      flowObserver.observe(flowSection);
+    }
+
     function updateMobileCta() {
-      if (!mobileCta) return;
-      
-      // logic: Show if scrolled past hero (>300) AND collection is NOT visible
-      if (window.scrollY > 300 && !isCollectionVisible) {
+      if (!mobileCta || !mobileCtaBtn) return;
+
+      // Default State (Shop)
+      const shopUrl = "https://shop.miyakoyadesign.com/";
+      const shopText = "BASEで商品を見る";
+
+      // Contact State
+      const contactUrl = "#contact";
+      const contactText = "お問い合わせへ";
+
+      // Logic Priority:
+      // 1. If Order Flow is Visible -> Show Contact Button (High Priority)
+      // 2. If Collection is Visible -> Hide Button (Medium Priority)
+      // 3. If Scrolled > 300 -> Show Shop Button (Low Priority)
+      // 4. Else -> Hide
+
+      if (isFlowVisible) {
+        // Show Contact
+        mobileCtaBtn.href = contactUrl;
+        mobileCtaBtn.textContent = contactText;
+        // Make sure it treats #contact as internal link for smooth scroll if using default anchor behavior,
+        // but since we preventDefault for # links in this script, it should work if we update the href.
+        mobileCtaBtn.target = "_self"; // Switch to self for anchor
+        mobileCta.classList.add("cta-visible");
+      } else if (isCollectionVisible) {
+        // Hide in Collection
+        mobileCta.classList.remove("cta-visible");
+      } else if (window.scrollY > 300) {
+        // Show Shop (Default)
+        mobileCtaBtn.href = shopUrl;
+        mobileCtaBtn.textContent = shopText;
+        mobileCtaBtn.target = "_blank"; // External link
         mobileCta.classList.add("cta-visible");
       } else {
+        // Hide at top
         mobileCta.classList.remove("cta-visible");
       }
     }

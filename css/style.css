@@ -1325,42 +1325,74 @@ body.home .header:not(.scrolled) .nav-list a {
 
 .flow-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  font-size: 1.6rem;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+
+.flow-subtitle {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  letter-spacing: 0.15em;
+  margin-top: 5px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .flow-steps {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start; /* Changed from center to align tops */
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .flow-step {
   text-align: center;
+  max-width: 200px;
+  flex: 1;
 }
 
 .step-num {
   display: block;
   font-family: var(--font-heading);
   color: var(--color-accent);
-  font-size: 1.1rem;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
-.step-text {
-  font-size: 0.9rem;
+.step-name {
+  font-size: 1.05rem;
   font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-.text-xs {
+.step-en {
+  display: block;
   font-size: 0.75rem;
   color: #888;
+  font-weight: 400;
+  margin-top: 2px;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .flow-arrow {
   color: var(--color-secondary);
   font-size: 1.2rem;
+  margin-top: 20px; /* Align arrow with top part */
 }
 
 @media (max-width: 768px) {
@@ -1694,7 +1726,7 @@ body.home .header.scrolled .logo-responsive {
     color: #fff;
     padding: 12px 32px;
     font-size: 0.9rem;
-    font-family: 'Noto Serif JP', serif;
+    font-family: "Noto Serif JP", serif;
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
