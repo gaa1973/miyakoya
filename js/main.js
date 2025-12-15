@@ -36,25 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileCtaBtn = mobileCta
       ? mobileCta.querySelector(".mobile-cta-btn")
       : null;
-    const collectionSection = document.getElementById("collection");
     const flowSection = document.querySelector(".service-flow"); // Order Flow
 
-    let isCollectionVisible = false;
     let isFlowVisible = false;
-
-    // Observer to detect if Collection section is in view
-    if (collectionSection && mobileCta) {
-      const collectionObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            isCollectionVisible = entry.isIntersecting;
-            updateMobileCta();
-          });
-        },
-        { threshold: 0.1 }
-      );
-      collectionObserver.observe(collectionSection);
-    }
 
     // Observer to detect if Order Flow section is in view
     if (flowSection && mobileCta) {
@@ -83,9 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Logic Priority:
       // 1. If Order Flow is Visible -> Show Contact Button (High Priority)
-      // 2. If Collection is Visible -> Hide Button (Medium Priority)
-      // 3. If Scrolled > 300 -> Show Shop Button (Low Priority)
-      // 4. Else -> Hide
+      // 2. If Scrolled > 300 -> Show Shop Button (Low Priority)
+      // 3. Else -> Hide
 
       if (isFlowVisible) {
         // Show Contact
@@ -95,9 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // but since we preventDefault for # links in this script, it should work if we update the href.
         mobileCtaBtn.target = "_self"; // Switch to self for anchor
         mobileCta.classList.add("cta-visible");
-      } else if (isCollectionVisible) {
-        // Hide in Collection
-        mobileCta.classList.remove("cta-visible");
       } else if (window.scrollY > 300) {
         // Show Shop (Default)
         mobileCtaBtn.href = shopUrl;
