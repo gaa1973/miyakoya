@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileCtaBtn = mobileCta
       ? mobileCta.querySelector(".mobile-cta-btn")
       : null;
-    const flowSection = document.querySelector(".service-flow"); // Order Flow
+    const flowSection = document.querySelector(".service-guide"); // Service Guide & Order Flow
+    // const flowSection = document.querySelector(".service-flow"); // Order Flow
 
     let isFlowVisible = false;
 
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Contact State
       const contactUrl = "#contact";
-      const contactText = "お問い合わせへ";
+      const contactText = "オーダーについて相談する";
 
       // Logic Priority:
       // 1. If Order Flow is Visible -> Show Contact Button (High Priority)
