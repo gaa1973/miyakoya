@@ -31,68 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("scrolled");
     }
 
-    // Toggle Mobile CTA on Index Page
-    const mobileCta = document.querySelector(".mobile-cta");
-    const mobileCtaBtn = mobileCta
-      ? mobileCta.querySelector(".mobile-cta-btn")
-      : null;
-    const flowSection = document.querySelector(".service-guide"); // Service Guide & Order Flow
-    // const flowSection = document.querySelector(".service-flow"); // Order Flow
-
-    let isFlowVisible = false;
-
-    // Observer to detect if Order Flow section is in view
-    if (flowSection && mobileCta) {
-      const flowObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            isFlowVisible = entry.isIntersecting;
-            updateMobileCta();
-          });
-        },
-        { threshold: 0.1 }
-      );
-      flowObserver.observe(flowSection);
-    }
-
-    function updateMobileCta() {
-      if (!mobileCta || !mobileCtaBtn) return;
-
-      // Default State (Shop)
-      const shopUrl = "https://shop.miyakoyadesign.com/";
-      const shopText = "BASEで商品を見る";
-
-      // Contact State
-      const contactUrl = "#contact";
-      const contactText = "オーダーについて相談する";
-
-      // Logic Priority:
-      // 1. If Order Flow is Visible -> Show Contact Button (High Priority)
-      // 2. If Scrolled > 300 -> Show Shop Button (Low Priority)
-      // 3. Else -> Hide
-
-      if (isFlowVisible) {
-        // Show Contact
-        mobileCtaBtn.href = contactUrl;
-        mobileCtaBtn.textContent = contactText;
-        // Make sure it treats #contact as internal link for smooth scroll if using default anchor behavior,
-        // but since we preventDefault for # links in this script, it should work if we update the href.
-        mobileCtaBtn.target = "_self"; // Switch to self for anchor
-        mobileCta.classList.add("cta-visible");
-      } else if (window.scrollY > 300) {
-        // Show Shop (Default)
-        mobileCtaBtn.href = shopUrl;
-        mobileCtaBtn.textContent = shopText;
-        mobileCtaBtn.target = "_blank"; // External link
-        mobileCta.classList.add("cta-visible");
+    // Toggle Floating Nav Dock Visibility
+    const floatingDock = document.querySelector(".floating-nav-dock");
+    
+    // Show after scrolling 500px (approx past First View)
+    if (floatingDock) {
+      if (window.scrollY > 500) {
+        floatingDock.classList.add("dock-visible");
       } else {
-        // Hide at top
-        mobileCta.classList.remove("cta-visible");
+        floatingDock.classList.remove("dock-visible");
       }
     }
-
-    // Call on scroll
-    updateMobileCta();
   });
 
   // Mobile Menu Toggle

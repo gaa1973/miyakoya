@@ -1742,45 +1742,127 @@ body.home .header.scrolled .logo-responsive {
   border-width: 0;
 }
 
-@media (max-width: 768px) {
-  .mobile-cta {
-    display: block;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+/* =========================================
+   Unified Floating Nav Dock (Elegant Glass)
+   ========================================= */
+.floating-nav-dock {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-accent);
+  border-radius: 50px;
+  padding: 8px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  width: 90%;
+  max-width: 400px;
+  justify-content: space-around;
+}
+
+.floating-nav-dock.dock-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dock-item {
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  flex: 1;
+}
+
+.dock-item:hover {
+  transform: translateY(-2px);
+  opacity: 0.7;
+}
+
+.dock-item .en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.dock-item .jp {
+  font-family: "Shippori Mincho", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 30px;
+  background-color: var(--color-accent);
+  opacity: 0.5;
+  margin: 0 20px;
+}
+
+/* Desktop Aesthetics (PC) - Morph into Badge */
+@media (min-width: 769px) {
+  .floating-nav-dock {
     width: auto;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    max-width: none;
+    left: auto;
+    right: 40px;
+    bottom: 40px;
+    transform: translateX(0) translateY(20px);
+    justify-content: center;
+    border-radius: 4px; /* More sophisticated shape for Badge */
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-accent);
+    /* Double border effect using box-shadow */
+    box-shadow: 
+      0 0 0 4px rgba(255, 255, 255, 0.5), 
+      0 10px 40px rgba(0, 0, 0, 0.1); 
   }
 
-  .mobile-cta.cta-visible {
+  .floating-nav-dock.dock-visible {
     opacity: 1;
-    visibility: visible;
+    transform: translateX(0) translateY(0);
   }
 
-  .mobile-cta-btn {
-    display: inline-block;
-    pointer-events: auto;
-    background-color: rgba(20, 20, 20, 0.85);
-    color: #fff;
-    padding: 12px 32px;
-    font-size: 0.9rem;
-    font-family: "Noto Serif JP", serif;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-    white-space: nowrap;
+  /* Hide Shop Link on Desktop (since it's in header) */
+  .shop-link,
+  .dock-divider {
+    display: none;
   }
 
-  .mobile-cta-btn:hover,
-  .mobile-cta-btn:active {
-    background-color: rgba(0, 0, 0, 0.95);
-    transform: scale(1.02);
+  /* Enhance Order Link for Desktop */
+  .dock-item .en {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .dock-item .jp {
+    font-size: 0.85rem;
+  }
+
+  .floating-nav-dock:hover {
+    background: #fff;
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+    box-shadow: 
+      0 0 0 4px rgba(197, 160, 89, 0.1), 
+      0 15px 50px rgba(0, 0, 0, 0.15); 
   }
 }
+
+

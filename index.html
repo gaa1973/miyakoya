@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MIYAKOYA ｜大人バレエのオーダーメイド衣装・サイズオーダー対応</title>
   <meta name="description" content="大人バレエや既製サイズが合わない方へ。MIYAKOYA は伝統と現代が織りなす完全オーダーメイドのバレエ衣装アトリエ。一人ひとりに合わせた一着をお仕立てします。" />
-  <meta property="og:title" content="MIYAKOYA | Modern Tradition" />
+  <meta property="og:title" content="MIYAKOYA | Private Atelier" />
   <meta property="og:description" content="あなただけのプライベートアトリエ。あなたのスタイルに合わせた最高の一着を。" />
   <meta property="og:image" content="assets/ogp.png" />
   <!-- Placeholder URL -->
@@ -58,8 +58,8 @@
           <span class="fade-in-up" style="animation-delay: 2.8s">Dream Stage</span>
         </h1>
         <p class="hero-subtitle fade-in-up" style="animation-delay: 3.8s">
-          世界に一着。あなたのためだけのプライベート・アトリエ。<br />
-          ダンサーの夢を叶える、唯一無二のオーダーメイドバレエ衣装。
+          世界に一着。あなたのためだけの<br />プライベート・アトリエ。<br />
+          ダンサーの夢を叶える、唯一無二の<br />オーダーメイドバレエ衣装。
         </p>
       </div>
       <div class="scroll-indicator">
@@ -127,7 +127,7 @@
               サイズや体型に左右されることなく、すべてのダンサーが舞台で美しく輝けるように。<br />
               MIYAKOYA は一着ずつ丁寧に仕立てます。
             </p>
-            <a href="https://miyakoyadesign.com/lookbook.html" class="btn-text">オーダー・レンタルの詳細を見る</a>
+            <a href="lookbook.html" class="btn-text">オーダー・レンタルの詳細を見る</a>
           </div>
           <div class="concept-image parallax-image">
             <img src="assets/purple.png" alt="Ballet Atelier" class="img-fluid" />
@@ -169,7 +169,7 @@
     </section>
 
     <!-- Service Guide Section (Order vs Rental) -->
-    <section class="service-guide section" id="service">
+    <section class="service-guide section" id="order">
       <div class="container">
         <div class="section-header">
           <span class="section-subtitle">Service</span>
@@ -178,7 +178,7 @@
         <!-- Service Split -->
         <div class="service-split">
           <!-- Order Column -->
-          <div class="service-col order-col">
+          <div class="service-col order-col" onclick="location.href='#order-scheme'">
             <div class="service-label">Order Made</div>
             <h4 class="service-catch">世界に一着、あなただけの輝き。</h4>
             <div class="service-price">
@@ -276,7 +276,7 @@
           <div class="gallery-item" onclick="location.href='lookbook.html#tutu-lilac'">
             <img src="assets/tutu_lilac.jpg" alt="Classical Tutu - Lilac" />
             <div class="gallery-overlay">
-              <h4>Classical Tutu</h4>
+              <h4><a href="lookbook.html#tutu-lilac" style="color: inherit; text-decoration: none;"></a>Classical Tutu</a></h4>
               <p>クラシックチュチュ</p>
             </div>
           </div>
@@ -285,14 +285,14 @@
               <img src="assets/collection_tiara.png" alt="MIYAKOYAのハンドメイドティアラ" class="tiara-img" />
             </div>
             <div class="gallery-overlay">
-              <h4>Tiara</h4>
+              <h4><a href="lookbook.html#tiara" style="color: inherit; text-decoration: none;">Tiara</a></h4>
               <p>ティアラ</p>
             </div>
           </div>
           <div class="gallery-item" onclick="location.href='lookbook.html#accessories'">
             <img src="assets/collection_accessory.png" alt="バレエ小物とアクセサリー" />
             <div class="gallery-overlay">
-              <h4>Accessories</h4>
+              <h4><a href="lookbook.html#accessories" style="color: inherit; text-decoration: none;">Accessories</a></h4>
               <p>小物・アクセサリー</p>
             </div>
           </div>
@@ -446,10 +446,20 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <div class="mobile-cta">
-    <a href="https://shop.miyakoyadesign.com/" target="_blank" class="mobile-cta-btn">BASEで商品を見る</a>
+  <!-- Unified Floating Nav Dock (Glassmorphism) -->
+  <div class="floating-nav-dock">
+    <a href="#collection" class="dock-item shop-link">
+      <span class="en">Collection</span>
+      <span class="jp">コレクション</span>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="#order" class="dock-item order-link">
+      <span class="en">Order Flow</span>
+      <span class="jp">オーダーの流れ</span>
+    </a>
   </div>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>
