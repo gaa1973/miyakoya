@@ -24,25 +24,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Header Scroll Effect
   const header = document.querySelector(".header");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-
     // Toggle Floating Nav Dock Visibility
     const floatingDock = document.querySelector(".floating-nav-dock");
-    
-    // Show after scrolling 500px (approx past First View)
-    if (floatingDock) {
-      if (window.scrollY > 500) {
-        floatingDock.classList.add("dock-visible");
-      } else {
-        floatingDock.classList.remove("dock-visible");
+
+    function toggleDock() {
+      if (floatingDock) {
+        if (window.scrollY > 500) {
+          floatingDock.classList.add("dock-visible");
+        } else {
+          floatingDock.classList.remove("dock-visible");
+        }
       }
     }
-  });
+
+    // Call on load (in case of refresh at button)
+    toggleDock();
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+      toggleDock();
+    });
 
   // Mobile Menu Toggle
   const menuToggle = document.querySelector(".menu-toggle");
