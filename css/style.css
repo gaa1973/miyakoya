@@ -566,6 +566,25 @@ body.home .header:not(.scrolled) .nav-list a {
   border-color: var(--color-primary);
 }
 
+.btn-outline.small {
+  padding: 14px 40px;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  min-width: 220px;
+  display: block; /* Changed from inline-block to block for margin auto centering */
+  width: fit-content;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.btn-outline.small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+}
+
 /* Shop Section */
 .shop {
   background: linear-gradient(to top, #fff0f5, #ffffff);
@@ -1875,9 +1894,36 @@ body.home .header.scrolled .logo-responsive {
   }
 }
 
+.hero-cta {
+  margin-top: 24px;          /* 余白をしっかり */
+  font-size: 0.9rem;         /* 少しだけ大きく */
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.hero-cta a {
+  color: rgba(247, 199, 199, 0.85);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(247, 199, 199, 0.85); /* 重要 */
+}
+
+.hero-cta a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
 /* Mobile CTA Fixed Bar */
 .mobile-cta {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-lead {
+    animation: fadeInUp 1.2s ease forwards;
+    animation-delay: 3.5s;
+    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
